@@ -93,7 +93,7 @@
     if(preg_match_all('~^\s?#include\s+["<](.*?)[">]~m', $data, $match))
     foreach($match[1] as $inc)
     {
-      $ipath = dirname($file)."\\$inc";
+      $ipath = sanitize(dirname($file)."\\$inc");
       if(file_exists($ipath))
         $deps[$file][] = $ipath;
     }
